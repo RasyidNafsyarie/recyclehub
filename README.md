@@ -46,7 +46,9 @@ cd RecycleHub
 ```
 python -m venv venv
 venv/Scripts/activate   # Windows
-source venv/bin/activate # Mac / Linux
+
+Nyalakan setiap ingin menjalankan project 
+.\venv\Scripts\python app.py
 ```
 
 ### 3️⃣ Install Dependencies
