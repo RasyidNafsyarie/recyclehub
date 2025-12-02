@@ -1,2 +1,25 @@
-<h1>RecycleHub</h1>
-<a href="/auth/login">Login</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Tailwind</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/output.css') }}">
+</head>
+<body class="bg-blue-500 flex items-center justify-center h-screen">
+    
+    <div class="bg-white p-10 rounded-lg shadow-xl text-center">
+        <h1 class="text-5xl font-bold text-red-600 mb-4">
+            NYOBA MWHEHEH
+        </h1>
+        <p class="text-xl text-gray-700">
+            Silahkan Login <br>
+            Klik tombol dibawah
+        </p>
+        <a href="/auth/login" class="mt-6 inline-block bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
+            Coba Login
+        </a>
+    </div>
+
+</body>
+</html>

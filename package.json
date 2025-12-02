@@ -1,0 +1,26 @@
+{
+  "name": "recyclehub",
+  "version": "1.0.0",
+  "description": "RecycleHub adalah aplikasi berbasis **Flask + MySQL** untuk membantu pengelolaan sampah rumah tangga secara lebih bertanggung jawab sesuai **SDG 12 – Responsible Consumption & Production**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RasyidNafsyarie/recyclehub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RasyidNafsyarie/recyclehub/issues"
+  },
+  "homepage": "https://github.com/RasyidNafsyarie/recyclehub#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.4.1"
+  }
+}
