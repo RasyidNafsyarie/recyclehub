@@ -1,28 +1,9 @@
-from flask import Flask, render_template
-from config import Config
-import mysql.connector
-from flask import g
-
-def get_db():
-    if 'db' not in g:
-        g.db = mysql.connector.connect(
-            host=Config.MYSQL_HOST,
-            user=Config.MYSQL_USER,
-            password=Config.MYSQL_PASSWORD,
-            database=Config.MYSQL_DB
-        )
-    return g.db
-
-def close_db(e=None):
-    db = g.pop('db', None)
-    if db is not None:
-        db.close()
-
-    app.teardown_appcontext(close_db)
+from flask import Flask, jsonify, render_template
+from config import DatabaseConfig
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config["SECRET_KEY"] = "secret123"  # ganti sesuai kebutuhan
 
     # === Import Blueprint ===
     from modules.auth import auth_bp
@@ -36,11 +17,37 @@ def create_app():
     app.register_blueprint(admin_bp)
     app.register_blueprint(pickup_bp)
 
+    # === Home Page ===
     @app.route("/")
     def home():
         return render_template("home.html")
 
+    # === Test Database Connection ===
+    @app.route("/db-test")
+    def db_test():
+        try:
+            conn = DatabaseConfig.get_connection()
+            cursor = conn.cursor(dictionary=True)
+
+            cursor.execute("SELECT NOW() AS waktu_server;")
+            result = cursor.fetchone()
+
+            cursor.close()
+            conn.close()
+
+            return jsonify({
+                "status": "connected",
+                "server_time": result["waktu_server"]
+            })
+
+        except Exception as e:
+            return jsonify({
+                "status": "error",
+                "message": str(e)
+            })
+
     return app
+
 
 if __name__ == "__main__":
     app = create_app()
