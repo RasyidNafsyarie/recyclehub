@@ -4,7 +4,7 @@
   "description": "RecycleHub adalah aplikasi berbasis **Flask + MySQL** untuk membantu pengelolaan sampah rumah tangga secara lebih bertanggung jawab sesuai **SDG 12 – Responsible Consumption & Production**.",
   "main": "index.js",
   "scripts": {
-     "dev": "tailwindcss -i ./static/css/input.css -o ./static/css/output.css --watch",
+     "dev": "tailwindcss -i ./static/src/input.css -o ./static/dist/css/output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
     
   },
