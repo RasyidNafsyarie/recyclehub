@@ -1,25 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cek Tailwind</title>
+    <title>RecycleHub</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/output.css') }}">
 </head>
+
 <body class="bg-blue-500 flex items-center justify-center h-screen">
-    
+
     <div class="bg-white p-10 rounded-lg shadow-xl text-center">
         <h1 class="text-5xl font-bold text-red-600 mb-4">
-            NYOBA MWHEHEH
+            RecycleHub
         </h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="mb-4 text-left">
+            {% for category, message in messages %}
+            <div
+                class="p-3 rounded {{ 'bg-green-100 text-green-700' if category == 'success' else 'bg-red-100 text-red-700' }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        {% if session.get('user_id') %}
         <p class="text-xl text-gray-700">
-            Silahkan Login <br>
-            Klik tombol dibawah
+            Halo, <strong>{{ session.get('nama') }}</strong>! <br>
+            Role Anda: <span class="uppercase font-bold">{{ session.get('role') }}</span>
         </p>
-        <a href="/auth/login" class="mt-6 inline-block bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
-            Coba Login
-        </a>
+        <div class="mt-6 space-x-4">
+            {% if session.get('role') == 'admin' %}
+            <a href="{{ url_for('admin.dashboard') }}"
+                class="inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">
+                Dashboard Admin
+            </a>
+            {% else %}
+            <a href="{{ url_for('user.dashboard') }}"
+                class="inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">
+                Dashboard User
+            </a>
+            {% endif %}
+            <a href="{{ url_for('auth.logout') }}"
+                class="inline-block bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600">
+                Logout
+            </a>
+        </div>
+        {% else %}
+        <p class="text-xl text-gray-700">
+            Silahkan Login atau Daftar <br>
+            untuk mulai mengelola sampah.
+        </p>
+        <div class="mt-6 space-x-4">
+            <a href="{{ url_for('auth.login') }}"
+                class="inline-block bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">
+                Login
+            </a>
+            <a href="{{ url_for('auth.register') }}"
+                class="inline-block bg-yellow-500 text-white px-6 py-2 rounded hover:bg-yellow-600">
+                Daftar
+            </a>
+        </div>
+        {% endif %}
     </div>
 
 </body>
+
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - RecycleHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/output.css') }}">
+</head>
+
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <nav class="bg-green-600 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{{ url_for('home') }}" class="text-white text-xl font-bold">RecycleHub Admin</a>
+            <div>
+                <span class="text-white mr-4">Halo, {{ session.get('nama') }}</span>
+                <a href="{{ url_for('auth.logout') }}"
+                    class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-8 p-4">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Dashboard Admin</h1>
+
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <p class="text-gray-600 text-lg">Halaman ini masih dalam pengembangan.</p>
+            <p class="text-gray-500 mt-2">Nantinya akan berisi statistik dan manajemen data.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

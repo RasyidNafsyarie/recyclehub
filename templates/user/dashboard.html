@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - RecycleHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/output.css') }}">
+</head>
+
+<body class="bg-gray-50 font-sans leading-normal tracking-normal">
+
+    <nav class="bg-blue-600 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="{{ url_for('home') }}" class="text-white text-xl font-bold">RecycleHub User</a>
+            <div>
+                <span class="text-white mr-4">Halo, {{ session.get('nama') }}</span>
+                <a href="{{ url_for('auth.logout') }}"
+                    class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+</body>
+
+</html>
