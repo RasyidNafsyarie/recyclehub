@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Sampah - Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <div class="w-64 bg-green-900 text-white flex flex-col">
+            <div class="p-6 text-2xl font-bold border-b border-green-800 flex items-center">
+                ♻️ RecycleHub
+            </div>
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="/dashboard" class="block py-2.5 px-4 rounded hover:bg-green-800 transition text-green-100">
+                    📊 Dashboard
+                </a>
+                <a href="#" class="block py-2.5 px-4 rounded bg-green-800 text-white font-semibold">
+                    🏦 Bank Sampah
+                </a>
+                <a href="#" class="block py-2.5 px-4 rounded hover:bg-green-800 transition text-green-100">
+                    🚛 Request Pickup
+                </a>
+                <a href="#" class="block py-2.5 px-4 rounded hover:bg-green-800 transition text-green-100">
+                    👥 Data User
+                </a>
+            </nav>
+        </div>
+
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <header class="bg-white shadow-sm py-4 px-6 flex justify-between items-center">
+                <h2 class="text-xl font-semibold text-gray-800">Kelola Bank Sampah</h2>
+                <div class="flex items-center space-x-2">
+                    <span class="text-gray-600 text-sm">Admin</span>
+                    <div class="h-8 w-8 rounded-full bg-green-500 text-white flex items-center justify-center font-bold">A</div>
+                </div>
+            </header>
+
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+                
+                <div class="mb-6 flex justify-between items-center">
+                    <p class="text-gray-600">Berikut adalah daftar mitra bank sampah.</p>
+                    <a href="#" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 shadow flex items-center gap-2">
+                        <span>+</span> Tambah Bank Sampah
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-lg shadow overflow-hidden">
+                    <table class="min-w-full leading-normal">
+                        <thead>
+                            <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+                                <th class="py-3 px-6 text-left">Nama Bank</th>
+                                <th class="py-3 px-6 text-left">Alamat</th>
+                                <th class="py-3 px-6 text-center">Kategori</th>
+                                <th class="py-3 px-6 text-center">Harga Poin</th>
+                                <th class="py-3 px-6 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600 text-sm font-light">
+                            
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="py-3 px-6 text-left whitespace-nowrap font-medium">
+                                    Bank Sampah Berkah
+                                </td>
+                                <td class="py-3 px-6 text-left">
+                                    Jl. Mawar No. 12, Purwokerto
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <span class="bg-blue-100 text-blue-600 py-1 px-3 rounded-full text-xs">Plastik</span>
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    2500 /kg
+                                </td>
+                                <td class="py-3 px-6 text-center">
+                                    <div class="flex item-center justify-center">
+                                        <button class="w-4 mr-2 transform hover:text-green-500 hover:scale-110">
+                                            🖊️
+                                        </button>
+                                        <button class="w-4 mr-2 transform hover:text-red-500 hover:scale-110">
+                                            🗑️
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
